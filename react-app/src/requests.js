@@ -58,7 +58,7 @@ export const restql = {
             cast,
             crew
         }`,
-    searchByCast: `LET tokens = @searchTerm
+    searchByCredits: `LET tokens = @searchTerm
         LET assets = (
             LET a= (FOR asset IN asset_credit_view
             SEARCH SEARCH_PHRASE

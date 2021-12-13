@@ -37,7 +37,7 @@ export const fetchSearchResultsAsync = (searchTerm, searchType) => {
                         ? `${castPhrases} PHRASE(asset.name, "${element}", "text_en") `
                         : `${castPhrases} PHRASE(asset.name, "${element}", "text_en") OR `
             })
-            searchQuery = restql.searchByCast.replace("SEARCH_PHRASE", castPhrases)
+            searchQuery = restql.searchByCredits.replace("SEARCH_PHRASE", castPhrases)
         }
 
         dispatch(fetchSearchResultsRequest(searchQuery))

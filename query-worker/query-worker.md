@@ -94,7 +94,7 @@ LET tokens = @searchTerm
 LET assets = (
     LET assetIds= (
         FOR asset IN asset_credit_view
-            SEARCH SEARCH_PHRASE
+            SEARCH PHRASE(asset.name, "Tom Hardy", "text_en")
             SORT BM25(asset) DESC
             RETURN asset._id
     )

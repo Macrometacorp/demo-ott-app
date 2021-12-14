@@ -4,7 +4,8 @@
 */node_modules
 /.pnp
 .pnp.js
-/api-service
+/api-service/images
+/api-service/download-image.js
 # testing
 /coverage
 
@@ -15,6 +16,7 @@ test.js
 
 # misc
 .env
+.env.sm4
 .env.dev
 .env.gdn
 .DS_Store

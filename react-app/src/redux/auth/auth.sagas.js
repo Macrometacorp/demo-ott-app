@@ -1,6 +1,6 @@
+import axios from "../../axiosInstance"
 import { takeLatest, all, put, call } from "redux-saga/effects"
 import { authActionTypes } from "./auth.types"
-import { auth, getCurrentUser } from "../../firebase/firebaseUtils"
 import {
     signInFailure,
     signInSuccess,
@@ -10,12 +10,10 @@ import {
     signUpSuccess,
 } from "./auth.actions"
 
-export function* getSnapshotFromUserAuth(userAuth, additionalData) {
+export function* getSnapshotFromUserAuth(userAuth) {
     try {
-        console.log(userAuth, additionalData)
-        // const userRef = yield call(createUserProfileDocument, userAuth, additionalData)
-        // const userSnapshot = yield userRef.get()
-        yield put(signInSuccess({ id: "userSnapshot" }))
+        yield sessionStorage.setItem("CUSTOMER_ID", userAuth.customerId)
+        yield put(signInSuccess({ id: userAuth.customerId, ...userAuth }))
     } catch (e) {
         yield put(signInFailure(e.message))
     }
@@ -23,19 +21,8 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData) {
 
 export function* signInWithEmail({ payload: { email, password } }) {
     try {
-        console.log(email, password)
-        // const { user } = yield auth.signInWithEmailAndPassword(email, password)
-        const user = "abcd"
-        yield getSnapshotFromUserAuth(user)
-    } catch (e) {
-        yield put(signInFailure(e.message))
-    }
-}
-
-export function* signInAnonymously() {
-    try {
-        const { user } = yield auth.signInAnonymously()
-        yield getSnapshotFromUserAuth(user)
+        const { data } = yield axios.post("signin", { email, password })
+        yield getSnapshotFromUserAuth(data[0])
     } catch (e) {
         yield put(signInFailure(e.message))
     }
@@ -43,7 +30,7 @@ export function* signInAnonymously() {
 
 export function* checkIfUserIsAuthenticated() {
     try {
-        const userAuth = yield getCurrentUser()
+        const userAuth = yield sessionStorage.getItem("CUSTOMER_ID")
         if (!userAuth) return
         yield getSnapshotFromUserAuth(userAuth)
     } catch (e) {
@@ -53,7 +40,7 @@ export function* checkIfUserIsAuthenticated() {
 
 export function* signOut() {
     try {
-        // yield auth.signOut()
+        yield sessionStorage.setItem("CUSTOMER_ID", "")
         yield put(signOutSuccess())
     } catch (e) {
         yield put(signOutFailure(e.message))
@@ -62,15 +49,15 @@ export function* signOut() {
 
 export function* signUp({ payload: { displayName, email, password } }) {
     try {
-        const { user } = yield auth.createUserWithEmailAndPassword(email, password)
-        yield put(signUpSuccess({ user, additionalData: { displayName } }))
+        const { data } = yield axios.post("signup", { email, password, displayName })
+        yield put(signUpSuccess({ user: data[0] }))
     } catch (e) {
         yield put(signUpFailure(e.message))
     }
 }
 
-export function* signInAfterSignUp({ payload: { user, additionalData } }) {
-    yield getSnapshotFromUserAuth(user, additionalData)
+export function* signInAfterSignUp({ payload: { user } }) {
+    yield getSnapshotFromUserAuth(user)
 }
 
 export function* onCheckUserSession() {
@@ -79,10 +66,6 @@ export function* onCheckUserSession() {
 
 export function* onEmailSignInStart() {
     yield takeLatest(authActionTypes.EMAIL_SIGN_IN_START, signInWithEmail)
-}
-
-export function* onAnonymousSignInStart() {
-    yield takeLatest(authActionTypes.ANONYMOUS_SIGN_IN_START, signInAnonymously)
 }
 
 export function* onSignOutStart() {
@@ -101,7 +84,6 @@ export function* authSagas() {
     yield all([
         call(onCheckUserSession),
         call(onEmailSignInStart),
-        call(onAnonymousSignInStart),
         call(onSignOutStart),
         call(onSignUpStart),
         call(onSignUpSuccess),

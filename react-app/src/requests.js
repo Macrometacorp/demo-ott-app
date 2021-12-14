@@ -15,9 +15,7 @@ export const LANG = "en-US"
 export const REGION = "US"
 export const FALLBACK_IMG_URL = Fallback_Img
 
-export const MOBILE_LOGO_URL = `${GITHUB_ASSETS_BASE_URL}/Fakeflix_favicon_192.png`
 export const PROFILE_PIC_URL = `${GITHUB_ASSETS_BASE_URL}/Fakeflix_profilepic.png`
-export const TADUM_SOUND_URL = `${GITHUB_ASSETS_BASE_URL}/Fakeflix_TaDum.mp3`
 const ONEMONTHAGO = getOneMonthAgoReleaseDate()
 const { REACT_APP_API_KEY } = process.env
 
@@ -42,7 +40,6 @@ export const restql = {
             FOR cast, edge IN 1..2 OUTBOUND assets[0] asset_credit_edge
                 FILTER edge.type == "cast"
                 SORT cast.popularity DESC
-                LIMIT 7
             RETURN cast
         )
 
@@ -75,7 +72,6 @@ export const restql = {
             FOR cast, edge IN 1..2 OUTBOUND assets[0] asset_credit_edge
                 FILTER edge.type == "cast"
                 SORT cast.popularity DESC
-                LIMIT 5
             RETURN cast
         )
 
@@ -83,7 +79,6 @@ export const restql = {
             FOR crew, edge IN 1..2 OUTBOUND assets[0] asset_credit_edge
                 FILTER edge.type == "crew"
                 SORT crew.popularity DESC
-                LIMIT 5
             RETURN crew
         )
 

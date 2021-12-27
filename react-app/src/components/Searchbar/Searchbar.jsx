@@ -42,9 +42,9 @@ const Searchbar = () => {
         setSearchInput(value)
         dispatch(changeSearchInputValue(value))
 
-        if (value.length > 0) {
-            history.push(`/search?q=${value}`)
-            dispatch(fetchSearchResultsAsync(value))
+        if (value.trim().length > 0) {
+            history.push(`/search?q=${value.trim()}`)
+            dispatch(fetchSearchResultsAsync(value.trim()))
         } else history.push("/browse")
     }
 

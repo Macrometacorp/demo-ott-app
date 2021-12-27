@@ -21,11 +21,6 @@ const Credits = () => {
                 rel="noreferrer"
             >
                 <span> Macrometa</span>
-                {/* <img
-          className="Credits__avatar"
-          src={GITHUB_AVATAR_URL}
-          alt="Credits Avatar"
-        /> */}
             </motion.a>
         </motion.footer>
     )

@@ -11,8 +11,6 @@ import {
     fetchRomanceMoviesAsync,
     fetchTopRatedMoviesAsync,
     fetchTrendingMoviesAsync,
-    // fetchUpcomingMoviesAsync,
-    // fetchLatestMoviesAsync,
 } from "./redux/movies/movies.actions"
 import {
     fetchActionAdventureSeriesAsync,
@@ -101,14 +99,6 @@ export const fetchMovieDataConfig = [
         genre: "trending",
         selector: movieSelectors.selectTrendingMovies,
     },
-    // {
-    //     id: 8,
-    //     thunk: fetchUpcomingMoviesAsync,
-    //     url: fetchUpcomingMovies,
-    //     title: "Upcoming",
-    //     genre: "upcoming",
-    //     selector: movieSelectors.selectUpcomingMovies,
-    // },
 ]
 
 export const fetchSeriesDataConfig = [
@@ -305,30 +295,3 @@ export const genresList = [
         name: "War & Politics",
     },
 ]
-
-// export const fetchPopularDataConfig = [
-//     {
-//         id: 0,
-//         thunk: fetchTopRatedMoviesAsync,
-//         url: fetchTopRated,
-//         title: "Top Rated in your country",
-//         genre: "toprated",
-//         selector: movieSelectors.selectTopRatedMovies,
-//     },
-//     {
-//         id: 1,
-//         thunk: fetchLatestMoviesAsync,
-//         url: fetchReleasedMoviesByOneMonth,
-//         title: "New on Macrometa",
-//         genre: "newin",
-//         selector: movieSelectors.selectLatestMovies,
-//     },
-//     {
-//         id: 2,
-//         thunk: fetchUpcomingMoviesAsync,
-//         url: fetchUpcomingMovies,
-//         title: "Upcoming",
-//         genre: "upcoming",
-//         selector: movieSelectors.selectUpcomingMovies,
-//     },
-// ]

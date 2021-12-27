@@ -29,7 +29,9 @@ export const fetchSearchResultsFailure = (errorMessage) => ({
 export const fetchSearchResultsAsync = (searchTerm, searchType) => {
     return (dispatch) => {
         let searchQuery = restql.searchByAsset
+        let bindVars = { searchTerm: searchTerm.toString() }
         if (searchType === "credits") {
+            bindVars = {}
             let castPhrases = ""
             searchTerm.forEach((element, index) => {
                 castPhrases =
@@ -42,7 +44,7 @@ export const fetchSearchResultsAsync = (searchTerm, searchType) => {
 
         dispatch(fetchSearchResultsRequest(searchQuery))
 
-        jsC8.executeQuery({ query: searchQuery, bindVars: { searchTerm: searchTerm.toString() } })
+        jsC8.executeQuery({ query: searchQuery, bindVars })
             .then((response) => {
                 dispatch(fetchSearchResultsSuccess(response[0]))
             })

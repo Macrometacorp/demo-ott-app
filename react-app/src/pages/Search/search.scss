@@ -31,6 +31,25 @@
         margin: 0 auto;
         margin-top: 3vh;
         justify-content: space-evenly;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        h3 {
+            padding-bottom: 8px;
+            margin-left: 16px;
+        }
+
+        ul {
+            overflow-y: auto;
+            height: 230px;
+            -ms-overflow-style: none;
+            padding-left: 8px;
+            padding-right: 8px;
+            scrollbar-width: none;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     &__text-placeholder {
@@ -58,14 +77,14 @@
 
     &__search-term {
         flex: 1;
-        text-align: center;
+        text-align: start;
         text-overflow: ellipsis;
         overflow-x: hidden;
         white-space: nowrap;
     }
 
     &__add-search-term {
-        flex: 0.3;
+        flex: 0.2;
         font-size: 18px;
     }
 

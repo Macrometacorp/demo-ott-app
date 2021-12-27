@@ -69,17 +69,6 @@ const SignIn = () => {
             >
                 {isLoading ? <Loader /> : "Sign in"}
             </motion.button>
-            {/* <motion.button
-        type="button"
-        variants={authFadeInUpVariants}
-        className={`SignIn__form--button button__anonymous ${
-          isLoading && "loading"
-        }`}
-        onClick={() => dispatch(anonymousSignInStart())}
-        disabled={isLoading}
-      >
-        {isLoading ? <Loader /> : "Sign in anonymously"}
-      </motion.button> */}
         </motion.form>
     )
 }

@@ -24,7 +24,7 @@ export function* signInWithEmail({ payload: { email, password } }) {
         const { data } = yield axios.post("signin", { email, password })
         yield getSnapshotFromUserAuth(data[0])
     } catch (e) {
-        yield put(signInFailure(e.message))
+        yield put(signInFailure(e.response.data))
     }
 }
 
@@ -52,7 +52,7 @@ export function* signUp({ payload: { displayName, email, password } }) {
         const { data } = yield axios.post("signup", { email, password, displayName })
         yield put(signUpSuccess({ user: data[0] }))
     } catch (e) {
-        yield put(signUpFailure(e.message))
+        yield put(signUpFailure(e.response.data))
     }
 }
 

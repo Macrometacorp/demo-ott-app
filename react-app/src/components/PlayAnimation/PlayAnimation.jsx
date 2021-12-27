@@ -1,18 +1,11 @@
 import "./playAnimation.scss"
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import { useHistory } from "react-router-dom"
 
 const PlayAnimation = () => {
     let history = useHistory()
-    const soundRef = useRef(null)
-    const handleTadum = () => {
-        console.log(soundRef.current)
-        // soundRef.current.currentTime = 0;
-        // soundRef.current.play();
-    }
 
     useEffect(() => {
-        handleTadum()
         setTimeout(() => {
             history.push("/browse")
         }, 4200)

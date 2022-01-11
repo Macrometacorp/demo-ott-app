@@ -8,12 +8,10 @@ const jsc8Client = new jsC8({
 const collections = [
     "assets",
     "credits",
-    "my_list",
-    "users",
     "asset_credit_edge",
     "genres_asset_edge",
     "my_list",
-    "users",
+    // "users",
 ]
 
 exports.truncateCollection = async () => {

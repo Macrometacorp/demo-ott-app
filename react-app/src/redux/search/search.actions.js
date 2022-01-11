@@ -29,17 +29,12 @@ export const fetchSearchResultsFailure = (errorMessage) => ({
 export const fetchSearchResultsAsync = (searchTerm, searchType) => {
     return (dispatch) => {
         let searchQuery = restql.searchByAsset
-        let bindVars = { searchTerm: searchTerm.toString() }
+        let bindVars = { searchTerm }
         if (searchType === "credits") {
             bindVars = {}
-            let castPhrases = ""
-            searchTerm.forEach((element, index) => {
-                castPhrases =
-                    searchTerm.length - 1 === index
-                        ? `${castPhrases} PHRASE(asset.name, "${element}", "text_en") `
-                        : `${castPhrases} PHRASE(asset.name, "${element}", "text_en") OR `
-            })
-            searchQuery = restql.searchByCredits.replace("SEARCH_PHRASE", castPhrases)
+            searchQuery = restql.searchByCredits
+                .replace("SEARCH_PHRASE", searchTerm.searchPhrases)
+                .replace("SEARCH_FILTER", searchTerm.searchFilters)
         }
 
         dispatch(fetchSearchResultsRequest(searchQuery))

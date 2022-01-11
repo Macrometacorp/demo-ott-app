@@ -1,6 +1,7 @@
 require("dotenv").config()
 const { truncateCollection } = require("./truncateImport")
 const { importMovies, importTvShows } = require("./dataImport")
+const jsC8 = require("jsc8")
 
 console.log("Federation URL: ", process.env.GDN_URL)
 

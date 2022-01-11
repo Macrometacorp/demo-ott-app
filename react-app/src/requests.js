@@ -72,17 +72,26 @@ export const restql = {
             crew
         }`,
     searchByCredits: `LET assets = (
-            LET asset_ids = (
+            LET credit_ids = (
                 FOR asset IN asset_credit_view
                     SEARCH SEARCH_PHRASE
                     SORT BM25(asset) DESC
                     RETURN asset._id
             )
             
-            FOR id IN asset_ids 
-                FOR vertices, edge IN 1..2 INBOUND id asset_credit_edge
-                SORT vertices.popularity DESC
-                RETURN vertices
+            LET assets = (
+                FOR id IN credit_ids 
+                    FOR vertices, edge IN 1..2 INBOUND id asset_credit_edge
+                    RETURN vertices
+            )
+            
+            FOR asset IN assets
+                LET cast_and_crew = (
+                    FOR vertices, edge IN 1..2 OUTBOUND asset asset_credit_edge
+                        RETURN vertices.name
+                )
+                FILTER SEARCH_FILTER
+                RETURN asset
         ) 
 
         LET cast = (

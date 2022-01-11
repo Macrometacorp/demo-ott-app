@@ -5,6 +5,10 @@
     padding: 2em 4vw 0 4vw;
     margin-top: 7em;
 
+    &__flex {
+        display: flex;
+    }
+
     &__wrp {
         margin: 0 auto;
         margin-top: 3vh;
@@ -16,6 +20,7 @@
         font-size: 16px;
         line-height: 1.6;
         text-align: left;
+        white-space: nowrap;
 
         @include mq("md") {
             font-size: 18px;
@@ -93,12 +98,20 @@
         font-size: 18px;
     }
 
+    &__search-operator {
+        border-radius: 16px;
+        cursor: pointer;
+        padding: 0px 8px;
+        margin-right: 12px;
+        border: 2px solid rgb(218, 26, 40);
+    }
+
     &__search-term-li {
         display: flex;
         align-items: center;
         list-style: none;
         cursor: pointer;
-        margin-right: 12px;
+        margin-right: 8px;
 
         span {
             flex: 1;
@@ -119,7 +132,67 @@
         }
     }
 
-    &__flex {
+    &__history {
+        cursor: pointer;
+
+        &__btn {
+            display: flex;
+            align-items: center;
+
+            span {
+                white-space: nowrap;
+                padding-right: 8px;
+            }
+        }
+
+        ul {
+            list-style: none;
+            z-index: 99;
+            border: 2px solid #9c1aff;
+            border-radius: 8px;
+            position: absolute;
+            background-color: #141414;
+            right: 64px;
+            margin-top: 8px;
+            height: 56px;
+            overflow: hidden;
+        }
+
+        li {
+            padding: 8px;
+            white-space: nowrap;
+        }
+    }
+
+    &__operator {
         display: flex;
+        align-items: center;
+        margin-right: 8px;
+        cursor: pointer;
+
+        &__btn {
+            display: flex;
+            align-items: center;
+
+            span {
+                white-space: nowrap;
+                padding-right: 8px;
+            }
+        }
+
+        ul {
+            list-style: none;
+            z-index: 99;
+            border: 2px solid #9c1aff;
+            border-radius: 8px;
+            position: absolute;
+            background-color: #141414;
+            overflow: hidden;
+        }
+
+        li {
+            padding: 8px;
+            white-space: nowrap;
+        }
     }
 }

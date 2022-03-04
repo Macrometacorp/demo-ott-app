@@ -15,9 +15,6 @@ export const useRetrieveData = (type) => {
             case "series":
                 selectedConfigArray = fetchSeriesDataConfig
                 break
-            // case "popular":
-            //     selectedConfigArray = fetchPopularDataConfig
-            //     break
             default:
                 break
         }

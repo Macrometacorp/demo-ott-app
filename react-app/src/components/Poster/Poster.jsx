@@ -39,10 +39,10 @@ const Poster = (result) => {
     return (
         <motion.div variants={posterFadeInVariants} className="Poster" onClick={handleModalOpening}>
             {backdrop_path ? (
-                <img src={`${BASE_IMG_URL}/${backdrop_path}`} alt={fallbackTitle} />
+                <img loading="lazy" src={`${BASE_IMG_URL}/${backdrop_path}`} alt={fallbackTitle} />
             ) : (
                 <>
-                    <img src={FALLBACK_IMG_URL} alt={fallbackTitle} />
+                    <img loading="lazy" src={FALLBACK_IMG_URL} alt={fallbackTitle} />
                     <div className="Poster__fallback">
                         <span>{fallbackTitle}</span>
                     </div>

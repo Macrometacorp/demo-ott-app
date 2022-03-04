@@ -1,6 +1,5 @@
 import jsC8 from "../../jsc8Instance"
 import { moviesActionTypes } from "./movies.types"
-// import axios from "../../axiosInstance"
 
 // Action
 export const fetchActionMoviesRequest = () => ({
@@ -349,27 +348,6 @@ export const fetchUpcomingTrendingMoviesFailure = (error) => ({
     payload: error,
 })
 
-// export const fetchUpcomingMoviesAsync = (fetchUrl, isPage) => {
-//     return (dispatch) => {
-//         dispatch(fetchUpcomingMoviesRequest())
-//         axios
-//             .get(fetchUrl)
-//             .then((res) => {
-//                 const upcomingMovies = res.data.results.map((el) => ({
-//                     ...el,
-//                     isFavourite: false,
-//                 }))
-//                 if (isPage) {
-//                     dispatch(fetchUpcomingMoviesSuccess(upcomingMovies, isPage))
-//                 } else dispatch(fetchUpcomingMoviesSuccess(upcomingMovies))
-//             })
-//             .catch((error) => {
-//                 const errorMessage = error.message
-//                 dispatch(fetchUpcomingTrendingMoviesFailure(errorMessage))
-//             })
-//     }
-// }
-
 // Latest
 export const fetchLatestMoviesRequest = () => ({
     type: moviesActionTypes.FETCH_LATEST_MOVIES_REQUEST,
@@ -384,24 +362,3 @@ export const fetchLatestTrendingMoviesFailure = (error) => ({
     type: moviesActionTypes.FETCH_LATEST_MOVIES_FAILURE,
     payload: error,
 })
-
-// export const fetchLatestMoviesAsync = (fetchUrl, isPage) => {
-//     return (dispatch) => {
-//         dispatch(fetchLatestMoviesRequest())
-//         axios
-//             .get(fetchUrl)
-//             .then((res) => {
-//                 const latestMovies = res.data.results.map((el) => ({
-//                     ...el,
-//                     isFavourite: false,
-//                 }))
-//                 if (isPage) {
-//                     dispatch(fetchLatestMoviesSuccess(latestMovies, isPage))
-//                 } else dispatch(fetchLatestMoviesSuccess(latestMovies))
-//             })
-//             .catch((error) => {
-//                 const errorMessage = error.message
-//                 dispatch(fetchLatestTrendingMoviesFailure(errorMessage))
-//             })
-//     }
-// }

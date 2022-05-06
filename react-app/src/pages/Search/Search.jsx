@@ -27,7 +27,7 @@ const Search = (searchResults) => {
     const selectSearchOp = useRef([])
     const { results } = searchResults
 
-    const style = { border: `2px solid #9C1AFF` }
+    const style = { border: `2px solid #029ae0` }
     const dropdownVariants = {
         open: { opacity: 1, height: "auto" },
         collapsed: { opacity: 0, height: 0 },

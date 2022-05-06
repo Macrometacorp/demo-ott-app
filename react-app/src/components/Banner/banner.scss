@@ -130,11 +130,11 @@
 
         &:first-child {
             margin-left: 0;
-            background-color: $red;
+            background-color: $coxedge-secondary-blue;
             color: $white;
 
             &:hover {
-                background-color: darken($red, 5);
+                background-color: darken($coxedge-secondary-blue, 5);
             }
         }
 

@@ -43,7 +43,7 @@ export const restql = {
         LET credit_assets = (
             FOR i IN search_results
                 FILTER HAS(i, "known_for_department")
-                FOR vertices, edge IN 1..2 INBOUND i._id asset_credit_edge
+                FOR vertices, edge IN 1..2 INBOUND i._id asset_ott_credit_edge
                     SORT vertices.popularity DESC
                     RETURN vertices
         )
@@ -55,7 +55,7 @@ export const restql = {
     LET cast = (
         FOR id IN top_6_asset_ids
             RETURN (
-                FOR cast, edge IN 1..2 OUTBOUND id asset_credit_edge
+                FOR cast, edge IN 1..2 OUTBOUND id asset_ott_credit_edge
                     FILTER edge.type == "cast"
                 RETURN cast
             )
@@ -64,7 +64,7 @@ export const restql = {
     LET crew = (
         FOR id IN top_6_asset_ids
             RETURN (
-                FOR crew, edge IN 1..2 OUTBOUND id asset_credit_edge
+                FOR crew, edge IN 1..2 OUTBOUND id asset_ott_credit_edge
                     FILTER edge.type == "crew"
                 RETURN crew
             )
@@ -95,13 +95,13 @@ export const restql = {
         
         LET assets = (
             FOR id IN credit_ids 
-                FOR vertices, edge IN 1..2 INBOUND id asset_credit_edge
+                FOR vertices, edge IN 1..2 INBOUND id asset_ott_credit_edge
                 RETURN vertices
         )
         
         FOR asset IN assets
             LET cast_and_crew = (
-                FOR vertices, edge IN 1..2 OUTBOUND asset asset_credit_edge
+                FOR vertices, edge IN 1..2 OUTBOUND asset asset_ott_credit_edge
                     RETURN vertices.name
             )
             FILTER SEARCH_FILTER
@@ -112,7 +112,7 @@ export const restql = {
     LET cast = (
         FOR id IN top_6_asset_ids
             RETURN (
-                FOR cast, edge IN 1..2 OUTBOUND id asset_credit_edge
+                FOR cast, edge IN 1..2 OUTBOUND id asset_ott_credit_edge
                     FILTER edge.type == "cast"
                 RETURN cast
             )
@@ -121,7 +121,7 @@ export const restql = {
     LET crew = (
         FOR id IN top_6_asset_ids
             RETURN (
-                FOR crew, edge IN 1..2 OUTBOUND id asset_credit_edge
+                FOR crew, edge IN 1..2 OUTBOUND id asset_ott_credit_edge
                     FILTER edge.type == "crew"
                 RETURN crew
             )

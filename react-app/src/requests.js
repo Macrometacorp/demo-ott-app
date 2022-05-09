@@ -23,7 +23,7 @@ export const restql = {
     searchByAsset: `LET tokens = TOKENS(@searchTerm, "text_en")
     LET assets = (
         LET search_results = (
-            FOR asset IN asset_credit_view
+            FOR asset IN asset_ott_credit_view
                 SEARCH ANALYZER(
                         BOOST(asset.title IN tokens, 4.5) OR 
                         BOOST(asset.original_title IN tokens, 3.5) OR
@@ -87,7 +87,7 @@ export const restql = {
     }`,
     searchByCredits: `LET assets = (
         LET credit_ids = (
-            FOR asset IN asset_credit_view
+            FOR asset IN asset_ott_credit_view
                 SEARCH SEARCH_PHRASE
                 SORT BM25(asset) DESC
                 RETURN asset._id

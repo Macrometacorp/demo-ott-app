@@ -21,6 +21,9 @@ test.js
 .env.gdn
 .DS_Store
 
+/react-app/.env.development.local
+/react-app/.env.production.local
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

@@ -20,7 +20,7 @@ const Credits = () => {
                 target="_blank"
                 rel="noreferrer"
             >
-                <span> Macrometa</span>
+                <span>COX Edge</span>
             </motion.a>
         </motion.footer>
     )

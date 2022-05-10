@@ -13,7 +13,7 @@ const PlayAnimation = () => {
 
     return (
         <div className="PlayAnimation__wrp">
-            <span className="PlayAnimation__text">MACROMETA</span>
+            <span className="PlayAnimation__text">COX EDGE</span>
         </div>
     )
 }

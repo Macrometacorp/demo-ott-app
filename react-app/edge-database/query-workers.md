@@ -1,6 +1,6 @@
 **getTopRatedMovies:**
 
-```
+```js
 LET movies = (
     FOR asset IN asset_type_view
         SEARCH ANALYZER(asset.asset_type == "movie", "identity")
@@ -17,7 +17,7 @@ FOR asset_id IN UNIQUE(movies)
 
 **getTopRatedTvSeries:**
 
-```
+```js
 LET tvSeries = (
     FOR asset IN asset_type_view
         SEARCH ANALYZER(asset.asset_type == "tv", "identity")
@@ -34,7 +34,7 @@ FOR asset_id IN UNIQUE(tvSeries)
 
 **getMovieAssetsByGenre:**
 
-```
+```js
 FOR asset, edge IN 1..2 OUTBOUND CONCAT("genres/", @genreId) genres_asset_edge
     FILTER edge.asset_type=="movie"
     LIMIT @offset, @resLimit
@@ -43,7 +43,7 @@ FOR asset, edge IN 1..2 OUTBOUND CONCAT("genres/", @genreId) genres_asset_edge
 
 **getTvSeriesAssetsByGenre:**
 
-```
+```js
 FOR asset, edge IN 1..2 OUTBOUND CONCAT("genres/", @genreId) genres_asset_edge
     FILTER edge.asset_type=="tv"
     LIMIT @offset, @resLimit
@@ -52,7 +52,7 @@ FOR asset, edge IN 1..2 OUTBOUND CONCAT("genres/", @genreId) genres_asset_edge
 
 **searchByAsset:**
 
-```
+```js
 LET tokens = TOKENS(@searchTerm, "text_en")
 LET assets = (
     FOR asset IN asset_credit_view
@@ -89,7 +89,7 @@ RETURN {
 
 **searchByCredits:**
 
-```
+```js
 LET tokens = @searchTerm
 LET assets = (
     LET assetIds= (

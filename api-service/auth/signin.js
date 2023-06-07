@@ -3,6 +3,7 @@ const crypto = require("crypto")
 
 const jsc8Client = new jsC8({
     url: process.env.GDN_URL,
+    fabricName: process.env.GDN_FABRIC,
     apiKey: process.env.API_KEY,
 })
 

@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/demo-ott-app/static/css/main.efe766f0.chunk.css",
-    "main.js": "/demo-ott-app/static/js/main.867297a1.chunk.js",
-    "main.js.map": "/demo-ott-app/static/js/main.867297a1.chunk.js.map",
+    "main.css": "/demo-ott-app/static/css/main.68c68437.chunk.css",
+    "main.js": "/demo-ott-app/static/js/main.1f26f488.chunk.js",
+    "main.js.map": "/demo-ott-app/static/js/main.1f26f488.chunk.js.map",
     "runtime-main.js": "/demo-ott-app/static/js/runtime-main.1bbe85b8.js",
     "runtime-main.js.map": "/demo-ott-app/static/js/runtime-main.1bbe85b8.js.map",
     "static/css/2.b4e4841b.chunk.css": "/demo-ott-app/static/css/2.b4e4841b.chunk.css",
-    "static/js/2.c274a996.chunk.js": "/demo-ott-app/static/js/2.c274a996.chunk.js",
-    "static/js/2.c274a996.chunk.js.map": "/demo-ott-app/static/js/2.c274a996.chunk.js.map",
+    "static/js/2.0a8b7cde.chunk.js": "/demo-ott-app/static/js/2.0a8b7cde.chunk.js",
+    "static/js/2.0a8b7cde.chunk.js.map": "/demo-ott-app/static/js/2.0a8b7cde.chunk.js.map",
     "index.html": "/demo-ott-app/index.html",
     "static/css/2.b4e4841b.chunk.css.map": "/demo-ott-app/static/css/2.b4e4841b.chunk.css.map",
-    "static/css/main.efe766f0.chunk.css.map": "/demo-ott-app/static/css/main.efe766f0.chunk.css.map",
-    "static/js/2.c274a996.chunk.js.LICENSE.txt": "/demo-ott-app/static/js/2.c274a996.chunk.js.LICENSE.txt",
+    "static/css/main.68c68437.chunk.css.map": "/demo-ott-app/static/css/main.68c68437.chunk.css.map",
+    "static/js/2.0a8b7cde.chunk.js.LICENSE.txt": "/demo-ott-app/static/js/2.0a8b7cde.chunk.js.LICENSE.txt",
     "static/media/fallback_img.bbf78683.png": "/demo-ott-app/static/media/fallback_img.bbf78683.png",
     "static/media/logo.6217344a.png": "/demo-ott-app/static/media/logo.6217344a.png",
     "static/media/signin_bg.0dd79681.jpg": "/demo-ott-app/static/media/signin_bg.0dd79681.jpg"
@@ -19,8 +19,8 @@
   "entrypoints": [
     "static/js/runtime-main.1bbe85b8.js",
     "static/css/2.b4e4841b.chunk.css",
-    "static/js/2.c274a996.chunk.js",
-    "static/css/main.efe766f0.chunk.css",
-    "static/js/main.867297a1.chunk.js"
+    "static/js/2.0a8b7cde.chunk.js",
+    "static/css/main.68c68437.chunk.css",
+    "static/js/main.1f26f488.chunk.js"
   ]
 }
